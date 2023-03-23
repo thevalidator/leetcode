@@ -1,4 +1,4 @@
-# [9. Palindrome Number](http://https://leetcode.com/problems/palindrome-number/ "9. Palindrome Number")
+# [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/ "9. Palindrome Number")
 ###### Easy
 
 

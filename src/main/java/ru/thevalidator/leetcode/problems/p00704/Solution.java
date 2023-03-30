@@ -18,22 +18,8 @@ public class Solution {
     public static int search(int[] nums, int target) throws InterruptedException {
         
         int ans = -1;
-        
-        if (nums.length == 1) {
-            if (nums[0] == target) {
-                return 0;
-            } else {
-                return ans;
-            }
-        }
-        
-        
         int left = 0;
         int right = nums.length - 1;
-        
-        
-        
-        
         while (left <= right) {
             int middle = left + (right - left) / 2;
             System.out.printf(">> left=%d\tmiddle=%d\tright=%s\n", left, middle, right);
@@ -51,7 +37,6 @@ public class Solution {
             
             TimeUnit.SECONDS.sleep(3);
         }
-        
         
         return ans;
     }

@@ -28,10 +28,8 @@ public class Solution {
                 return middle;
             } else if (target < nums[middle]) {
                 right = middle - 1;
-                //middle -= (right - left + 1) / 2;
             } else if (target > nums[middle]) {
                 left = middle + 1;
-                //middle += (right - left + 1) / 2;
             }
             System.out.printf("<< left=%d\tmiddle=%d\tright=%s\n\n", left, middle, right);
             

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2023 thevalidator
  */
-package ru.thevalidator.leetcode.problems.p00059;
+package ru.thevalidator.leetcode.problems.p00509;
 
 /**
  * @author thevalidator <the.validator@yandex.ru>

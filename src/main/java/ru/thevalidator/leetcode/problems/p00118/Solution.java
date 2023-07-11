@@ -11,41 +11,33 @@ import java.util.List;
  */
 public class Solution {
 
-    //TODO: refactor
-    
-    static List<List<Integer>> result = new ArrayList<>();
-
     public static List<List<Integer>> generate(int numRows) {
-        result.clear();
-        for (int i = 1; i <= numRows; i++) {
-            result.add(generateRow(i));
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(getBaseRowTemplate());
+        for (int i = 1; i < numRows; i++) {
+            result.add(generateNextRow(result.get(i - 1)));
         }
-
         return result;
     }
 
     public static void main(String[] args) {
-
+        System.out.println(generate(5));
     }
 
-    private static List<Integer> generateRow(int number) {
-        List<Integer> row = new ArrayList<>();
-        if (number == 1) {
-            row.add(1);
-        }
-        if (number == 2) {
-            row.add(1);
-            row.add(1);
-        }
-        row.add(1);
-        var list = result.get(number - 2);
-        for (int i = 1; i < number - 1; i++) {
-            
-            int value = list.get(i-1) + list.get(i);
+    private static List<Integer> generateNextRow(List<Integer> previousRow) {
+        List<Integer> row = getBaseRowTemplate();
+        int loopSize = previousRow.size() - 1;
+        for (int i = 1; i <= loopSize; i++) {
+            int value = previousRow.get(i - 1) + previousRow.get(i);
             row.add(value);
         }
         row.add(1);
+        return row;
+    }
 
+    private static List<Integer> getBaseRowTemplate() {
+        List<Integer> row = new ArrayList<>();
+        row.add(1);
         return row;
     }
 

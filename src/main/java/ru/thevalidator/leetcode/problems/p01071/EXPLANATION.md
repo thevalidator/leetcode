@@ -72,10 +72,10 @@ class Solution {
 
 Let **m,nm, n**m**,**n be the lengths of the two input strings `str1` and `str2`.
 
-* Time complexity: **O(min⁡(m,n)⋅(m+n))O(\min(m, n) \cdot (m + n))**O**(**min**(**m**,**n**)**⋅**(**m**+**n**))**
+* Time complexity: `O(min(m,n)⋅(m+n))`
   We checked every prefix string `base` of the shorter string among `str1` and `str2`, and verify if both strings are made by multiples of `base`. There are up to **min⁡(m,n)\min(m, n)**min**(**m**,**n**)** prefix strings to verify and each check involves iterating over the two input strings to check if the current `base` is the GCD string, which costs **O(m+n)O(m + n)**O**(**m**+**n**)**. Therefore, the overall time complexity is **O(min⁡(m,n)⋅(m+n))O(\min(m, n) \cdot (m + n))**O**(**min**(**m**,**n**)**⋅**(**m**+**n**))**.
-* Space complexity: **O(min⁡(m,n))O(\min(m, n))**O**(**min**(**m**,**n**))**
-  We need to keep a copy of `base` in each iteration, which takes **O(min⁡(m,n))O(\min(m, n))**O**(**min**(**m**,**n**))** space.
+* Space complexity: `O(min⁡(m,n))O(\min(m, n))O(min(m,n))`
+  We need to keep a copy of `base` in each iteration, which takes `O(min⁡(m,n))O(\min(m, n))O(min(m,n))` space.
 
 ---
 
@@ -180,9 +180,9 @@ class Solution {
 
 Let **m,nm, n**m**,**n be the lengthes of the two input strings `str1` and `str2`.
 
-* Time complexity: **O(m+n)O(m + n)**O**(**m**+**n**)**
-  * We need to compare the two concatenations of length **O(m+n)O(m + n)**O**(**m**+**n**)**, it takes **O(m+n)O(m + n)**O**(**m**+**n**)** time.
-  * We calculate the GCD using binary Euclidean algorithm, it takes **log⁡(m⋅n)\log(m \cdot n)**log**(**m**⋅**n**)** time.
-  * To sum up, the overall time complexity is **O(m+n)O(m + n)**O**(**m**+**n**)**.
-* Space complexity: **O(m+n)O(m + n)**O**(**m**+**n**)**
-  We need to compare the two concatenations of length **O(m+n)O(m + n)**O**(**m**+**n**)**.
+* Time complexity: `O(m+n)O(m+n)O(m+n)`
+  * We need to compare the two concatenations of length `O(m+n)O(m+n)O(m+n)`, it takes `O(m+n)O(m+n)O(m+n)` time.
+  * We calculate the GCD using binary Euclidean algorithm, it takes `log⁡(m⋅n)\log(m⋅n)log(m⋅n)` time.
+  * To sum up, the overall time complexity is `O(m+n)O(m + n)O(m+n)`.
+* Space complexity: `O(m+n)O(m+n)O(m+n)`
+  We need to compare the two concatenations of length `O(m+n)O(m+n)O(m+n)`.

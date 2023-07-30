@@ -10,14 +10,19 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        //System.out.println(gcdOfStrings("ABABAB", "ABAB"));
-        System.out.println(gcdOfStrings(
-                "TAUXXTAUXXTAUXXTAUXXTAUXX",
-                "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX")); //"TAUXX"
-
-        System.out.println(gcdOfStrings(
-                "LEET",
-                "CODE")); //""
+        String s11 = "TAUXXTAUXXTAUXXTAUXXTAUXX";
+        String s12 = "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX";
+        
+        String s21 = "LEET";
+        String s22 = "CODE";
+        
+        System.out.println(gcdOfStrings(s11, s12)); //"TAUXX"
+        System.out.println(gcdOfStrings(s21, s22)); //""
+        
+        Solution2 s = new Solution2();
+        System.out.println(s.gcdOfStrings(s11, s12));
+        System.out.println(s.gcdOfStrings(s21, s22));
+        
 
     }
 
@@ -27,28 +32,25 @@ public class Solution {
         int limit = Math.min(str1.length(), str2.length());
 
         StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < limit; i++) {
-            if (str1.charAt(i) != str2.charAt(i)) {
-                return divisor;
-            }
-        }
-
         String longest = str1.length() > limit ? str1 : str2;
+
         for (int i = 0; i < limit; i++) {
             sb.append(longest.charAt(i));
-            if (str1.length() % sb.length() != 0 || str2.length() % sb.length() != 0) {
-                continue;
+            if (str1.charAt(i) != str2.charAt(i)) {
+                return "";
             }
-            boolean isOk = true;
-            for (int j = 0; j < longest.length(); j++) {
-                if (longest.charAt(j) != sb.charAt(j % sb.length())) {
-                    isOk = false;
-                    break;
+            if (str1.length() % (i + 1) == 0 && str2.length() % (i + 1) == 0) {
+                boolean isOk = true;
+                String tmp = str1.substring(0, i + 1);
+                for (int j = 0; j < longest.length(); j++) {
+                    if (longest.charAt(j) != tmp.charAt(j % tmp.length())) {
+                        isOk = false;
+                        break;
+                    }
                 }
-            }
-            if (isOk) {
-                divisor = sb.toString();
+                if (isOk) {
+                    divisor = tmp;
+                }
             }
         }
 
